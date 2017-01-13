@@ -40,6 +40,8 @@ def kmeans(k, X):
   # >>> ones.shape
   # m = ...  # количество строк в матрице X
   # n = ...  # количество столбцов в матрице X
+  m = X.shape[0]
+  n = X.shape[1]
 
   curr_iteration = prev_iteration = np.zeros(m)
 
