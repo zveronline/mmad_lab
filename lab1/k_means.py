@@ -9,6 +9,7 @@ def dist(A, B):
   # Для вычисления суммы используйте функцию sum или np.sum
   # Для вычисления квадратного корня используйте функцию np.sqrt
   # r = ...
+  r = np.sqrt(np.sum((A-B)**2))
   return r
 
 
@@ -76,5 +77,5 @@ def kmeans(k, X):
 
     # приписываем каждую точку к заданному классу
     curr_iteration = class_of_each_point(X, centers)
-  
+
   return centers
