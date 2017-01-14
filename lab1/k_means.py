@@ -55,7 +55,7 @@ def kmeans(k, X):
   # Для вычисления минимальных и максимальных значений по столбцам (признакам)
   # матрицы X используйте функции min(X, axis=0) и max(X, axis=0) библиотеки NumPy соответственно.
   # centers = ...
-  centers=(max(X,axis=0)-min(X,axis=0))*np.random.random((k,n))-min(X,axis=0)
+  centers=(max(X, axis=0)-min(X, axis=0))*(np.random.random((k, n))-min(X, axis=0))
   # приписываем каждую точку к заданному классу
   curr_iteration = class_of_each_point(X, centers)
 
@@ -67,17 +67,16 @@ def kmeans(k, X):
   #   np.any(a1 != a2)
   # Для реализации логического отрицания в Python используйте not
   # Поэкспериментируйте в консоли Python с функциями all и any, чтобы понять, как они работают.
-  while not np.all(curr_iteration == prev.iteration)
+  while not np.all(curr_iteration == prev.iteration):
+  	prev_iteration = curr_iteration
 
-    prev_iteration = curr_iteration
+  # вычисляем новые центры масс
+  for i in range(k):
+    sub_X = X[curr_iteration == i,:]
+    if len(sub_X) > 0:
+      centers[i,:] = np.mean(sub_X, axis=0)
 
-    # вычисляем новые центры масс
-    for i in range(k):
-      sub_X = X[curr_iteration == i,:]
-      if len(sub_X) > 0:
-        centers[i,:] = np.mean(sub_X, axis=0)
-
-    # приписываем каждую точку к заданному классу
-    curr_iteration = class_of_each_point(X, centers)
+  # приписываем каждую точку к заданному классу
+  curr_iteration = class_of_each_point(X, centers)
 
   return centers
