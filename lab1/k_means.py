@@ -37,7 +37,7 @@ def kmeans(k, X):
   # Чтобы понять, что хранится в свойстве shape, попробуйте в консоли Python следующий код:
   # >>> ones = np.ones((3, 2))
   # >>> ones
-  # >>> ones.shape
+  # >>> ones.shapey
   # m = ...  # количество строк в матрице X
   # n = ...  # количество столбцов в матрице X
   m = X.shape[0]
@@ -67,7 +67,7 @@ def kmeans(k, X):
   #   np.any(a1 != a2)
   # Для реализации логического отрицания в Python используйте not
   # Поэкспериментируйте в консоли Python с функциями all и any, чтобы понять, как они работают.
-  while True:
+  while not np.all(curr_iteration == prev.iteration)
 
     prev_iteration = curr_iteration
 
