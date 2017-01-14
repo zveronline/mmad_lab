@@ -55,7 +55,7 @@ def kmeans(k, X):
   # Для вычисления минимальных и максимальных значений по столбцам (признакам)
   # матрицы X используйте функции min(X, axis=0) и max(X, axis=0) библиотеки NumPy соответственно.
   # centers = ...
-
+  centers=(max(X,axis=0)-(min(X,axis=0))*np.random.random((k,n))-min(X,axis=0)
   # приписываем каждую точку к заданному классу
   curr_iteration = class_of_each_point(X, centers)
 
