@@ -32,7 +32,7 @@ def k_means(k, X):
     # >>> c = np.append(a, b)
     # >>> c
     #   array([1, 2, 3])
-    # errors = ...
+    errors = np.append(X, e)
 
     # цикл до тех пор, пока центры не стабилизируются
     iteration_count = 1
