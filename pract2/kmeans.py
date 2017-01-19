@@ -32,7 +32,7 @@ def k_means(k, X):
     # >>> c = np.append(a, b)
     # >>> c
     #   array([1, 2, 3])
-    errors = np.append(X, e)
+    errors = np.append(errors, e)
 
     # цикл до тех пор, пока центры не стабилизируются
     iteration_count = 1
@@ -51,12 +51,12 @@ def k_means(k, X):
         # TODO: внести текущие центры кластеров (centers) в список всех центров (all_centers)
         # присоединить подматрицу к матрице можно с помощью уже знакомой функции append из библиотеки numpy
         # all_centers = ...
-        all_centears = 
+        all_centears = np.append(X, centers)
         # приписываем каждую точку к заданному классу
         curr_iteration, e = class_of_each_point(X, centers)
 
         # TODO: внести ошибку e для текущей итерации в вектор errors
-        # errors = ...
+        errors = np.append(errors, e)
 
         iteration_count += 1
 
