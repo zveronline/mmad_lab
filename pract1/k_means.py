@@ -68,15 +68,15 @@ def kmeans(k, X):
   # Для реализации логического отрицания в Python используйте not
   # Поэкспериментируйте в консоли Python с функциями all и any, чтобы понять, как они работают.
   while not np.all(curr_iteration == prev_iteration):
-  	prev_iteration = curr_iteration
+    prev_iteration = curr_iteration
 
-  # вычисляем новые центры масс
-  for i in range(k):
-    sub_X = X[curr_iteration == i,:]
-    if len(sub_X) > 0:
-      centers[i,:] = np.mean(sub_X, axis=0)
+    # вычисляем новые центры масс
+    for i in range(k):
+      sub_X = X[curr_iteration == i,:]
+      if len(sub_X) > 0:
+        centers[i,:] = np.mean(sub_X, axis=0)
 
-  # приписываем каждую точку к заданному классу
-  curr_iteration = class_of_each_point(X, centers)
+    # приписываем каждую точку к заданному классу
+    curr_iteration = class_of_each_point(X, centers)
 
   return centers
