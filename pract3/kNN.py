@@ -45,7 +45,7 @@ def k_nearest(X, k, obj):
     # >>> a = np.array([3, 2, 5])
     # >>> np.argsort(a)
     # array([1, 0, 2], dtype=int64)     # минимальный элемент 2 с индексом 1 в массиве a, затем 3 с индексом 0 и в конце 5 с индексом 2.
-
+    sosed = np.argsort(rast)
     # TODO: выбрать в отдельный вектор классы k ближайших соседей
     # Нужно взять k строк из матрицы X, соответствующих ближайшим соседям.
     # Индексы строк ближайших соседей были получены на предыдущем шаге.
@@ -58,13 +58,14 @@ def k_nearest(X, k, obj):
     #        [7, 8, 9]])
     # >>> a[[0, 2], -1]     # взяли первую и третью строки (индексы 0 и 2 соответственно), и в них последнее значение. Это будут значения 3 и 9.
     # array([3, 9])
-
+    nearest_classes = X[sosed, -1]
     # TODO: определить наиболее часто встречающийся класс в этом векторе. Просто раскомментируйте код ниже:
-    # unique, counts = np.unique(nearest_classes, return_counts=True)
-    # object_class = unique[np.argmax(counts)]
+    unique, counts = np.unique(nearest_classes, return_counts=True)
+    object_class = unique[np.argmax(counts)]
 
     # TODO: вернуть полученное значение из функции. Искомый класс объекта obj хранится в переменной object_class
     # return ...
+    return object_class
 
 # вычисление евклидова расстояния между двумя точками
 def dist(p1, p2):
