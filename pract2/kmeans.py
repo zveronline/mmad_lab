@@ -51,7 +51,7 @@ def k_means(k, X):
         # TODO: внести текущие центры кластеров (centers) в список всех центров (all_centers)
         # присоединить подматрицу к матрице можно с помощью уже знакомой функции append из библиотеки numpy
         # all_centers = ...
-
+        all_centears = 
         # приписываем каждую точку к заданному классу
         curr_iteration, e = class_of_each_point(X, centers)
 
