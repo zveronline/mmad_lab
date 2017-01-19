@@ -10,7 +10,7 @@ def k_means(k, X):
     n = X.shape[1]  # количество признаков объекта
     curr_iteration = prev_iteration = np.zeros([m, 1])
 
-    # генерим k центов со случайными координатами
+    # генерим k центров со случайными координатами
     idx = np.arange(0, m)
     shuffle(idx)
     centers = X[idx[0: k], :]
@@ -51,7 +51,7 @@ def k_means(k, X):
         # TODO: внести текущие центры кластеров (centers) в список всех центров (all_centers)
         # присоединить подматрицу к матрице можно с помощью уже знакомой функции append из библиотеки numpy
         # all_centers = ...
-        all_centers = np.append(all_centers, centers)
+        all_centers = np.append(all_centers, centers, axis=0)
         # приписываем каждую точку к заданному классу
         curr_iteration, e = class_of_each_point(X, centers)
 
@@ -85,7 +85,7 @@ def k_means(k, X):
     # TODO: модифицировать оператор return так, чтобы
     # функция возвращала переменные centers, all_centers и errors
     all_centers = np.reshape(all_centers, [iteration_count, k, n])
-    return 0
+    return centers, all_centers, errors
 
 
 # вычисление расстояния между двумя точками
@@ -119,6 +119,7 @@ def class_of_each_point(X, centers):
     # от каждой точки до ближайшего центра кластера
     # Для возведения в квадрат используйте функцию pow(a, 2),
     # а для вычисления среднего numpy.mean(a), где a - это numpy.array
-    err = 
+    d = np.power(min_dist, 2)
+    err = np.mean(d)
 
     return classes, err
