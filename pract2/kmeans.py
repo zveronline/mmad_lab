@@ -87,7 +87,6 @@ def k_means(k, X):
     all_centers = np.reshape(all_centers, [iteration_count, k, n])
     return centers, all_centers, errors
 
-
 # вычисление расстояния между двумя точками
 def dist(p1, p2):
     return math.sqrt(sum((p1 - p2)**2))
@@ -119,7 +118,7 @@ def class_of_each_point(X, centers):
     # от каждой точки до ближайшего центра кластера
     # Для возведения в квадрат используйте функцию pow(a, 2),
     # а для вычисления среднего numpy.mean(a), где a - это numpy.array
-    d = np.power(min_dist, 2)
-    err = np.mean(d)
+    k = np.power(min_dist, 2)
+    err = np.mean(k)
 
     return classes, err
