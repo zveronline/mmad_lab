@@ -28,9 +28,9 @@ def k_nearest(X, k, obj):
     norm_X = (sub_X - m) / s
     # TODO: зная параметры среднего и среднеквадратического отклонения
     #       по каждому столбцу sub_X, выполнить нормализацию объекта obj
-    m_obj = np.mean(obj, axis=0)
-    s_obj = np.std(obj, axis=0)
-    norm_obj = (obj - m_obj) / s_obj
+    # m_obj = np.mean(obj, axis=0)
+    # s_obj = np.std(obj, axis=0)
+    norm_obj = (obj - m) / s
     # TODO: рассчитать евклидово расстояние от obj до каждого объекта sub_X (функция dist ниже).
     # Реализовать можно с помощью цикла for. Существуют разные варианты записи этого цикла, например, такой:
     # Пример реализации цикла for на Python. Здесь возводится в квадрат каждый элемент массива a
@@ -58,7 +58,7 @@ def k_nearest(X, k, obj):
     #        [7, 8, 9]])
     # >>> a[[0, 2], -1]     # взяли первую и третью строки (индексы 0 и 2 соответственно), и в них последнее значение. Это будут значения 3 и 9.
     # array([3, 9])
-    nearest_classes = X[sosed, -1]
+    nearest_classes = X[sosed[0:k], 2]
     # TODO: определить наиболее часто встречающийся класс в этом векторе. Просто раскомментируйте код ниже:
     unique, counts = np.unique(nearest_classes, return_counts=True)
     object_class = unique[np.argmax(counts)]
