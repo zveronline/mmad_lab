@@ -8,5 +8,6 @@ maxd = np.max(data)
 mind = np.min(data)
 median = np.median(data)
 mean = np.mean(data)
-s = np.std(data)
-var = np.var(data)
+s = np.std(data) #сред отклонение
+var = np.var(data) #дисперсия
+print(maxd, mind, median, mean, s, var)
